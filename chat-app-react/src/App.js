@@ -1,14 +1,32 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
+import './App.css'
+import {Route, Routes} from "react-router-dom";
+import HomePage from "./pages/HomePage.js";
+import SignupPage from "./pages/SignupPage.js";
+import LoginPage from "./pages/LoginPage.js";
+import SettingsPage from "./pages/SettingsPage.js";
+import ProfilePage from "./pages/ProfilePage.js";
+import Navbar from "./components/Navbar";
+import {useAuthStore} from "./store/UseAuthStore";
 
 function App() {
+    const {authUser, checkAuth} = useAuthStore();
+
+    useEffect(() => {
+        checkAuth()
+    }, [checkAuth]);
+
+    console.log(authUser)
     return (
         <div className="App">
-            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-                <h1 className="text-3xl font-bold text-blue-500">Hello, Tailwind!</h1>
-                <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-                    Click Me
-                </button>
-            </div>
+            <Navbar></Navbar>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/signup" element={<SignupPage/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/settings" element={<SettingsPage/>}/>
+                <Route path="/profile" element={<ProfilePage/>}/>
+            </Routes>
         </div>
     );
 }
