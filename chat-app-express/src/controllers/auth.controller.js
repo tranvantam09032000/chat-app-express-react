@@ -30,7 +30,7 @@ export const signup = async (req, res)=> {
         if(newUser) {
             generateToken(newUser._id, res);
             await newUser.save();
-            return res.status(200).json({message: 'Signup successfully!'});
+            return res.status(200).json(newUser);
         }else {
             return res.status(400).json({message: 'Invalid user data!'});
         }
@@ -54,7 +54,7 @@ export const login = async (req, res)=> {
         }
 
         generateToken(user._id, res);
-        return res.status(200).json({message: 'Login successfully!'});
+        return res.status(200).json(user);
 
     }catch (error) {
         console.log("Error in login controller: ", error);
@@ -73,7 +73,6 @@ export const logout = (req, res)=> {
 
 export const updateProfile = async (req, res)=> {
     try {
-
         const {avatar} = req.body;
         const userId = req.user._id;
 
