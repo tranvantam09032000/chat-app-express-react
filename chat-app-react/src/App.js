@@ -10,10 +10,11 @@ import Navbar from "./components/Navbar";
 import {useAuthStore} from "./store/UseAuthStore";
 import {Loader} from "lucide-react";
 import {Toaster} from "react-hot-toast";
+import {useThemeStore} from "./store/UseThemeStore";
 
 function App() {
     const {authUser, checkAuth, isCheckingAuth} = useAuthStore();
-
+    const { theme } = useThemeStore();
     useEffect(() => {
         checkAuth()
     }, [checkAuth]);
@@ -24,7 +25,7 @@ function App() {
         </div>)
     }
     return (
-        <div className="App">
+        <div data-theme={theme}>
             <Navbar></Navbar>
             <Routes>
                 <Route path="/" element={authUser ? <HomePage/>: <Navigate to="/login"/>}/>
