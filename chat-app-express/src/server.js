@@ -16,7 +16,7 @@ app.use(cors({
     credentials: true
 }))
 app.use("/api/auth", authRouter);
-app.use("/api/message", MessageRouter);
+app.use("/api/messages", MessageRouter);
 
 app.listen(PORT, () => {
     console.log('Server is running on PORT: ' + PORT);
