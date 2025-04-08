@@ -1,58 +1,26 @@
-chat-app-express/node_modules
-chat-app-express/.env
-chat-app-express/.env.local
-chat-app-express/.env.development
-chat-app-express/.env.production
-chat-app-express/.env.test
-chat-app-express/.cache/
-chat-app-express/dist/
-chat-app-express/build/
-chat-app-express/coverage/
-
-chat-app-react/node_modules
-chat-app-react/.env
-chat-app-react/.env.local
-chat-app-react/.env.development
-chat-app-react/.env.production
-chat-app-react/.env.test
-chat-app-react/.cache
-chat-app-react/dist/
-cchat-app-react/build/
-chat-app-react/coverage/
-
-# Bỏ qua thư mục node_modules (chứa thư viện cài từ npm)
-node_modules/
-
-# Bỏ qua file môi trường
-.env
-.env.local
-.env.development
-.env.production
-.env.test
-
-# Bỏ qua log files
-npm-debug.log
-yarn-debug.log
-yarn-error.log
-pnpm-debug.log
-logs/
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Bỏ qua thư mục cache, build
-.cache/
-dist/
-build/
-coverage/
+node_modules
+dist
+dist-ssr
+*.local
 
-# Bỏ qua file hệ thống
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# Bỏ qua file editor
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Bỏ qua thư mục tạm của Docker (nếu dùng)
-docker-compose.override.yml
+.env

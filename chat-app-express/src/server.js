@@ -6,9 +6,11 @@ import cookieParser from "cookie-parser"
 import MessageRouter from "./routers/message.router.js";
 import cors from "cors"
 import { app, server } from "./lib/socket.js";
+import path from "path";
 
 dotenv.config();
 const PORT = process.env.PORT;
+const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -18,6 +20,14 @@ app.use(cors({
 }))
 app.use("/api/auth", authRouter);
 app.use("/api/messages", MessageRouter);
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../chat-app-react/build")));
+
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../chat-app-react", "build", "index.html"));
+    });
+}
 
 server.listen(PORT, () => {
     console.log('Server is running on PORT: ' + PORT);
