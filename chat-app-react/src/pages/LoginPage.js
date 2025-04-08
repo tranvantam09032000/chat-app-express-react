@@ -12,7 +12,7 @@ const LoginPage = ()=> {
         password: ""
     });
 
-    const {login, isLoggingIng} = useAuthStore();
+    const {login, isLoggingIn} = useAuthStore();
     const validateForm = () => {
         if (!formData.email.trim()) {
             toast.error("Email is required");
@@ -97,8 +97,8 @@ const LoginPage = ()=> {
                                 </button>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary w-full" disabled={isLoggingIng}>
-                            {isLoggingIng ? (
+                        <button type="submit" className="btn btn-primary w-full" disabled={isLoggingIn}>
+                            {isLoggingIn ? (
                                 <>
                                     <Loader2 className="size-5 animate-spin"/>
                                     Loading...
