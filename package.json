@@ -1,0 +1,21 @@
+{
+  "name": "chat-app-express-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix chat-app-express && npm install --prefix chat-app-react && npm run build --prefix chat-app-react",
+    "start": "npm run start --prefix chat-app-express"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranvantam09032000/cars-website-express-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tranvantam09032000/cars-website-express-react/issues"
+  },
+  "homepage": "https://github.com/tranvantam09032000/cars-website-express-react#readme",
+  "description": ""
+}
